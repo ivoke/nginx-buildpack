@@ -7,8 +7,8 @@ NGINX_VERSION=1.5.2
 PCRE_VERSION=8.21
 
 nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
-#pcre_tarball_url=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.bz2
-pcre_tarball_url=http://garr.dl.sourceforge.net/project/pcre/pcre/${PCRE_VERSION}/pcre-${PCRE_VERSION}.tar.bz2
+pcre_tarball_url=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.gz
+#pcre_tarball_url=http://garr.dl.sourceforge.net/project/pcre/pcre/${PCRE_VERSION}/pcre-${PCRE_VERSION}.tar.bz2
 
 temp_dir=$(mktemp -d /tmp/vulcan_nginx.XXXXXXXXXX)
 
@@ -28,10 +28,10 @@ cd $temp_dir
 echo "Temp dir: $temp_dir"
 
 echo "Downloading $nginx_tarball_url"
-curl $nginx_tarball_url | tar xf -
+curl $nginx_tarball_url | tar xzf -
 
 echo "Downloading $pcre_tarball_url"
-(cd nginx-${NGINX_VERSION} && curl $pcre_tarball_url | tar xf -)
+(cd nginx-${NGINX_VERSION} && curl $pcre_tarball_url | tar xzf -)
 
 vulcan build -o ${vulcan_archive_result} -s nginx-${NGINX_VERSION} -v -p /tmp/nginx -c "./configure --with-pcre=pcre-${PCRE_VERSION} --with-http_gzip_static_module --prefix=/tmp/nginx && make install"
 
