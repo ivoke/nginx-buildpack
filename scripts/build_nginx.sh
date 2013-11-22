@@ -33,7 +33,7 @@ curl $nginx_tarball_url | tar xzf -
 echo "Downloading $pcre_tarball_url"
 (cd nginx-${NGINX_VERSION} && curl $pcre_tarball_url | tar xzf -)
 
-vulcan build -o ${vulcan_archive_result} -s nginx-${NGINX_VERSION} -v -p /tmp/nginx -c "./configure --with-pcre=pcre-${PCRE_VERSION} --with-http_gzip_static_module --prefix=/tmp/nginx && make install"
+vulcan build -o ${vulcan_archive_result} -s nginx-${NGINX_VERSION} -v -p /tmp/nginx -c "./configure --with-pcre=pcre-${PCRE_VERSION} --with-http_gzip_static_module --with-http_realip_module --prefix=/tmp/nginx && make install"
 
 echo "Extracting the nginx binary into the buildback"
 mkdir -p $untarring_dir
