@@ -4,7 +4,7 @@
 # https://devcenter.heroku.com/articles/buildpack-binaries
 
 NGINX_VERSION=1.5.2
-PCRE_VERSION=8.21
+PCRE_VERSION=8.33
 
 nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 pcre_tarball_url=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.gz
