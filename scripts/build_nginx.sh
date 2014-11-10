@@ -3,11 +3,11 @@
 # Requires 'vulcan' to be installed and a build server created.
 # https://devcenter.heroku.com/articles/buildpack-binaries
 
-NGINX_VERSION=1.5.7
-PCRE_VERSION=8.33
+NGINX_VERSION=1.6.2
+PCRE_VERSION=8.34
 
 nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
-pcre_tarball_url=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.gz
+pcre_tarball_url=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.bz2
 
 temp_dir=$(mktemp -d /tmp/nginx.XXXXXXXXXX)
 
